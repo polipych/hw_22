@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h1 class="text-center">ToDo App</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="bg-warning text-light py-2 rounded text-center"> Task Id: {{ task.id }} </h4>
+            <li class="list-group-item list-group-item-action">
+                <h5 class="card-title"> {{ task.title }} </h5>
+                {% if task.status == False %}
+                    <h6 class="card-subtitle mb-2 text-muted">Status: In Progress</h6>
+                    <h7 class="card-subtitle mb-2 text-muted">Created: {{ task.start }}</h7>
+                {% else %}
+                    <h6 class="card-subtitle mb-2 text-muted">Status: Closed</h6>
+                    <h7 class="card-subtitle mb-2 text-muted">Created: {{ task.start }}<br>Closed: {{ task.end }}</h7>
+                {% endif %}
+            </li>
+        </div>
+    </div>
+{% endblock content %}
